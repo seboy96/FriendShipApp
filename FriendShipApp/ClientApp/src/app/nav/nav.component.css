@@ -1,0 +1,21 @@
+.divider {
+  width: 10px;
+  height: auto;
+  display: inline-block;
+}
+@media screen and (max-width: 775px) {
+  #long-menu {
+    display: none;
+  }
+
+  #short-menu {
+    display: inline;
+  }
+
+  #hamburger {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+  }
+}
