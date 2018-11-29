@@ -1,12 +1,12 @@
 <router-outlet></router-outlet>
-<form class="container" (submit)="submit(myform)" #myform="ngForm" id="long-menu">
+<form (submit)="submit(myform)" #myform="ngForm" id="long-menu">
   <mat-form-field [style.fontSize.px]="14">
     <input matInput placeholder="User name" name="UserName" [(ngModel)]="model.UserName" required>
   </mat-form-field>
-  <div class="divider"></div>
+  <!--<div class="divider"></div>-->
   <mat-form-field [style.fontSize.px]="14">
     <input matInput placeholder="Password" name="Password" [(ngModel)]="model.Password" required>
   </mat-form-field>
-  <div class="divider"></div>
+  <!--<div class="divider"></div>-->
   <button mat-mini-fab color="primary">Login</button>
 </form>

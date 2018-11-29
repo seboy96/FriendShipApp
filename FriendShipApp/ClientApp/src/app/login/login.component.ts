@@ -19,15 +19,16 @@ export class LoginComponent implements OnInit {
   }
 
   submit(form: NgForm) {
-    //this.http.post('api/auth/login', this.model as User).subscribe(result => {
-    //  this.result = result;
-    //  console.log(result);
-    //  this.posted = true;
-    //  form.reset();
-    //},
-    //  error => console.log(error)
-    //)
-    console.log("Submitted");
+    this.http.post('api/auth/login', this.model as User).subscribe(result => {
+      this.result = result;
+      console.log(result);
+      this.posted = true;
+      form.reset();
+    },
+      error => alert("There was an error logging in...") //was console.log(error)
+    )
+    //console.log('Submitted');
+    //console.log(form);
   }
 
 }

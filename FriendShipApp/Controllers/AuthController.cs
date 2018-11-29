@@ -32,20 +32,24 @@ namespace FriendShipApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, false, false);
-                if (result.Succeeded)
+                try
                 {
-                    
-                    var jToken = BuildToken(user);
-                    User x = await _userManager.FindByNameAsync(user.UserName);
-                    return Ok(new { Msg = "Login succeeded", user.UserName, ID = x.Id,  Token = jToken }); ;
+                    var result = await _signInManager.PasswordSignInAsync(user.UserName, user.Password, false, false);
+                    if (result.Succeeded)
+                    {
+
+                        var jToken = BuildToken(user);
+                        User x = await _userManager.FindByNameAsync(user.UserName);
+                        return Ok(new { Msg = "Login succeeded", user.UserName, ID = x.Id, Token = jToken }); ;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                }
+                catch (Exception e) { }
             }
-            return BadRequest(ModelState);
+                return BadRequest(ModelState);
         }
 
         [HttpPost("register")]
