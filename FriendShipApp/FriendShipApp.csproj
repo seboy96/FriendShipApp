@@ -26,11 +26,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\models\AuthUser.ts" />
+    <None Remove="ClientApp\src\app\models\User.ts" />
+    <None Remove="ClientApp\src\app\models\Userclass.ts" />
     <None Remove="ClientApp\src\app\modules\material.module.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\models\AuthUser.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\User.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\Userclass.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\modules\material.module.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\services\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

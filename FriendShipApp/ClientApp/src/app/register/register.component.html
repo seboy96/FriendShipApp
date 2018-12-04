@@ -1,0 +1,11 @@
+<h2>Sign Up</h2>
+<hr />
+<form (submit)="register(myregform)" #myregform="ngForm">
+  <mat-form-field [style.fontSize.px]="14">
+    <input matInput placeholder="User name" name="UserName" [(ngModel)]="model.UserName" required>
+  </mat-form-field>
+  <mat-form-field [style.fontSize.px]="14">
+    <input matInput placeholder="Password" name="Password" [(ngModel)]="model.Password" required>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Register</button>
+</form>
