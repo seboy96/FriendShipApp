@@ -1,12 +1,17 @@
 <router-outlet></router-outlet>
-<form (submit)="submit(myform)" #myform="ngForm" id="long-menu">
+<form *ngIf="!posted" (submit)="submit(myform)" #myform="ngForm" id="long-menu">
   <mat-form-field [style.fontSize.px]="14">
     <input matInput placeholder="User name" name="UserName" [(ngModel)]="model.UserName" required>
   </mat-form-field>
   <!--<div class="divider"></div>-->
   <mat-form-field [style.fontSize.px]="14">
-    <input matInput placeholder="Password" name="Password" [(ngModel)]="model.Password" required>
+    <input type="password" matInput placeholder="Password" name="Password" [(ngModel)]="model.Password" required>
   </mat-form-field>
   <!--<div class="divider"></div>-->
   <button mat-mini-fab color="primary">Login</button>
 </form>
+
+<div *ngIf="posted">
+  <h2>Hello, user!</h2>
+  <button mat-mini-fab color="primary">Logout</button>
+</div>

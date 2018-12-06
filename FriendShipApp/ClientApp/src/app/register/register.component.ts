@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { User } from '../login/login.component';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   model = new User();
   result: any;
@@ -22,23 +23,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit(form: NgForm) {
-    this.service.loginUser(this.model as User).subscribe(result => {
+  register(form: NgForm) {
+    this.service.registerUser(this.model as User).subscribe(result => {
       this.result = result;
       console.log(result);
       this.posted = true;
       form.reset();
       this.router.navigate(['landing'])
     },
-      error => alert("There was an error logging in...") //was console.log(error)
+      error => alert("There was an error registering...")
     )
-    //console.log('Submitted');
-    //console.log(form);
   }
 
-}
-
- export class User {
-  UserName: string;
-  Password: string;
 }
