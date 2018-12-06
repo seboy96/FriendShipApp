@@ -9,8 +9,8 @@ export class NavComponent implements OnInit {
 
   constructor() { }
 
-  submitted = false;
-  onSubmit() { this.submitted = true; }
+  //submitted = false;
+  //onSubmit() { this.submitted = true; }
 
   ngOnInit() {
   }
