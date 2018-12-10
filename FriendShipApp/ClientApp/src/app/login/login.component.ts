@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit(form: NgForm) {
-    this.service.loginUser(this.model as User).subscribe(result => {
+    this.service.login(this.model as User).subscribe(result => {
       this.result = result;
       console.log(result);
       this.posted = true;
@@ -34,6 +34,12 @@ export class LoginComponent implements OnInit {
     )
     //console.log('Submitted');
     //console.log(form);
+  }
+
+  isLoggedIn() {
+    var x = this.service.isLoggedIn();
+    //this.service.isLoggedIn();
+    return x;
   }
 
 }

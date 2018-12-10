@@ -38,9 +38,9 @@ namespace FriendShipApp.Controllers
                     if (result.Succeeded)
                     {
 
-                        var jToken = BuildToken(user);
-                        User x = await _userManager.FindByNameAsync(user.UserName);
-                        return Ok(new { Msg = "Login succeeded", user.UserName, ID = x.Id, Token = jToken }); ;
+                        var tokenString = BuildToken(user);
+                        User userInfo = await _userManager.FindByNameAsync(user.UserName);
+                        return Ok(new { tokenString, User = userInfo });
                     }
                     else
                     {
@@ -49,7 +49,9 @@ namespace FriendShipApp.Controllers
                 }
                 catch (Exception e) { }
             }
-                return BadRequest(ModelState);
+            return BadRequest(ModelState);
+
+
         }
 
         [HttpPost("register")]

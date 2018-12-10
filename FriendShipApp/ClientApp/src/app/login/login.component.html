@@ -11,7 +11,11 @@
   <button mat-mini-fab color="primary">Login</button>
 </form>
 
-<div *ngIf="posted">
-  <h2>Hello, user!</h2>
+<div *ngIf="posted && isLoggedIn()">
+  <!--<div *ngIf="isLoggedIn()">
+    <h2>Hello, {{model.UserName}}!</h2>
+    <button mat-mini-fab color="primary">Logout</button>
+  </div>-->
+  <h2>Hello, {{model.UserName}}!</h2>
   <button mat-mini-fab color="primary">Logout</button>
 </div>
