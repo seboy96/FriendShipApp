@@ -35,4 +35,8 @@ export class RegisterComponent implements OnInit {
     )
   }
 
+  passwordNoMatch(pw: string) {
+    return this.model.Password == pw;
+  }
+
 }
