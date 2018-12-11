@@ -21,7 +21,8 @@ export function tokenGetter() {
 
 const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
-  { path: 'landing', component: LandingComponent }
+  { path: 'landing', component: LandingComponent },
+  { path: '**', component: HomeComponent}
 ];
 
 @NgModule({

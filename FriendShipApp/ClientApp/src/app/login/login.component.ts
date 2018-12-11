@@ -42,6 +42,11 @@ export class LoginComponent implements OnInit {
     return x;
   }
 
+  logout() {
+    this.service.logout();
+    this.router.navigate(['/'])
+  }
+
 }
 
  export class User {

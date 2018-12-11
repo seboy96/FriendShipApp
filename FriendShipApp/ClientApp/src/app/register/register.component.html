@@ -1,6 +1,6 @@
-<h2 class="primary">Sign Up</h2>
+<h2 class="primary" align="center">Sign Up</h2>
 <hr />
-<form (submit)="register(myregform)" #myregform="ngForm">
+<form (submit)="register(myregform)" #myregform="ngForm" id="registerForm">
   <div>
     <mat-form-field [style.fontSize.px]="14">
       <input matInput placeholder="Username" name="UserName" [(ngModel)]="model.UserName" required>

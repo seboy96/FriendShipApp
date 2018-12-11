@@ -1,4 +1,4 @@
-<router-outlet></router-outlet>
+
 <form *ngIf="!posted" (submit)="submit(myform)" #myform="ngForm" id="long-menu">
   <mat-form-field [style.fontSize.px]="14">
     <input matInput placeholder="User name" name="UserName" [(ngModel)]="model.UserName" required>
@@ -12,10 +12,9 @@
 </form>
 
 <div *ngIf="posted && isLoggedIn()">
-  <!--<div *ngIf="isLoggedIn()">
-    <h2>Hello, {{model.UserName}}!</h2>
-    <button mat-mini-fab color="primary">Logout</button>
-  </div>-->
-  <h2>Hello, {{model.UserName}}!</h2>
-  <button mat-mini-fab color="primary">Logout</button>
+  <button mat-button [matMenuTriggerFor]="menu">Hello, {{result.user.userName}}!</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Edit Profile</button>
+    <button mat-menu-item (click)="logout()">Logout</button>
+  </mat-menu>
 </div>
