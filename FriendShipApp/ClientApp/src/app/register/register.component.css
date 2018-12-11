@@ -1,3 +1,7 @@
 #registerForm {
   text-align: center;
 }
+
+.invalid {
+  color: darkred;
+}
