@@ -16,6 +16,7 @@ namespace FriendShipApp.Data
         }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Photo> Photo { get; set; }
     }
 }
 

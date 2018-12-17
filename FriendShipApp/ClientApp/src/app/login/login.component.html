@@ -1,5 +1,5 @@
 
-<form *ngIf="!posted" (submit)="submit(myform)" #myform="ngForm" id="long-menu">
+<form *ngIf="!posted || !isLoggedIn()" (submit)="submit(myform)" #myform="ngForm" id="long-menu">
   <mat-form-field [style.fontSize.px]="14">
     <input matInput placeholder="User name" name="UserName" [(ngModel)]="model.UserName" required>
   </mat-form-field>

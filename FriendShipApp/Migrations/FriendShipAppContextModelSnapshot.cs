@@ -19,6 +19,29 @@ namespace FriendShipApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FriendShipApp.Models.Photo", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateAdded");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsProfilePic");
+
+                    b.Property<string>("Url");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Photo");
+                });
+
             modelBuilder.Entity("FriendShipApp.Models.User", b =>
                 {
                     b.Property<string>("Id")
@@ -26,17 +49,35 @@ namespace FriendShipApp.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<DateTime>("BirthDate");
+
+                    b.Property<string>("City");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
+
+                    b.Property<DateTime>("Created");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("Gender");
+
+                    b.Property<string>("Interests");
+
+                    b.Property<string>("Introduction");
+
+                    b.Property<DateTime>("LastActive");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("LookingFor");
+
+                    b.Property<string>("Name");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -178,6 +219,13 @@ namespace FriendShipApp.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FriendShipApp.Models.Photo", b =>
+                {
+                    b.HasOne("FriendShipApp.Models.User", "User")
+                        .WithMany("Photos")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

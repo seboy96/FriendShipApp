@@ -17,7 +17,8 @@
 
   <div>
     <mat-form-field [style.fontSize.px]="14">
-      <input type="password" matInput placeholder="Confirm Password" name="confirmPassword" required>
+      <input type="password" matInput placeholder="Confirm Password" name="confirmPassword" #cnfpw required>
+      <!--<div class="invalid">Passwords must match</div>-->
     </mat-form-field>
   </div>
 

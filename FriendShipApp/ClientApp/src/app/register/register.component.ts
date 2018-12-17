@@ -26,17 +26,13 @@ export class RegisterComponent implements OnInit {
   register(form: NgForm) {
     this.service.registerUser(this.model as User).subscribe(result => {
       this.result = result;
-      console.log(result);
       this.posted = true;
       form.reset();
+
       this.router.navigate(['landing'])
     },
       error => alert("There was an error registering...")
     )
-  }
-
-  passwordNoMatch(pw: string) {
-    return this.model.Password == pw;
   }
 
 }
