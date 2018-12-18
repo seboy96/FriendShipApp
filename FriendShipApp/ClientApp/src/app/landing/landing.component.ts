@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
+import { User } from '../login/login.component';
 
 @Component({
   selector: 'app-landing',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  users: User[];
 
-  constructor() { }
+  constructor(private service: UserService) { }
 
   ngOnInit() {
+    this.service.getUsers().subscribe(data => {
+      this.users = data;
+    })
   }
 
 }

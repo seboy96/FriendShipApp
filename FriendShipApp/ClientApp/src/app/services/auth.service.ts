@@ -22,7 +22,8 @@ export class AuthService {
         }
         return result;
       }));
-  }
+  }
+
   loginUser(user: User) {
     return this.http.post("api/auth/login", user);
   }

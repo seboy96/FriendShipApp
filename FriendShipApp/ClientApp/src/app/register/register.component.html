@@ -22,5 +22,26 @@
     </mat-form-field>
   </div>
 
+  <div>
+    <mat-radio-group>
+      <mat-radio-button value="1">Male</mat-radio-button>
+      <mat-radio-button value="2">Female</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div>
+    <mat-form-field [style.fontSize.px]="14">
+      <input matInput placeholder="City" name="City" [(ngModel)]="model.City" required #city="ngModel">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
   <button mat-raised-button color="primary" [disabled]="myregform.form.invalid">Register</button>
 </form>

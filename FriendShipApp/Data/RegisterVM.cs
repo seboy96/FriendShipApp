@@ -12,5 +12,8 @@ namespace FriendShipApp.Data
         public string UserName { get; set; }
         [Required(ErrorMessage = "{0} is required")]
         public string Password { get; set; }
+        public string Gender { get; set; }
+        public string City { get; set; }
+        public string Birthdate { get; set; }
     }
 }
